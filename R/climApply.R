@@ -22,7 +22,7 @@ climApply <- function(P=NA,Tx=NA,Tm=NA,Tn=NA,month=1:12,clim_fun=contin,...)   {
 	
 	
 	
-	out <- FUN(clim,...)
+	out <- clim_fun(clim,...)
 	
 	
 	

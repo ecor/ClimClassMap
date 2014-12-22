@@ -27,7 +27,7 @@ listClimApply <- function(P=NA,Tx=NA,Tm=NA,Tn=NA,month=1:12,clim_fun=contin,
 	if (class(Tm)=="RasterStack" | class(Tm)=="RasterBrick" | is.na(Tm)) is.raster <- is.raster & TRUE
 	if (class(Tn)=="RasterStack" | class(Tn)=="RasterBrick" | is.na(Tn)) is.raster <- is.raster & TRUE	
 	
-	
+	if (class(P)=="RasterStack" | class(P)=="RasterBrick" & is.raster=)
 	
 	
 
