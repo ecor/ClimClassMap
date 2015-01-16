@@ -1,0 +1,23 @@
+\name{climApply}
+\alias{climApply}
+\title{climApply}
+\usage{
+climApply(P = NA, Tx = NA, Tm = NA, Tn = NA, month = 1:12,
+  clim_fun = contin, ...)
+}
+\description{
+Extantsions of 'climClass' function
+}
+\note{
+'month' can be replecad by 'layer'
+}
+\examples{
+library(ClimClassMap)
+
+data(Trent_climate)
+
+clim <- clima_81_10$T0083
+
+c <- climApply(P=clim$P,Tx=clim$Tx,Tn=clim$Tn,Tm=clim$Tm,clim_fun=contin,indices=4)
+}
+

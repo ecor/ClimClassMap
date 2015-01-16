@@ -4,16 +4,30 @@
 ###############################################################################
 
 NULL
-#'
+#' Extension of  "ClimApply" to a list 
+#' 
+#' Function "ClimApply" to ...
 #' 
 #' 
 #' @note 'month' can be replecad by 'layer'
 #' 
+#' @seealso \code{\link{ClimApply}}
+#' 
 #' 
 #' @export
 #' 
-#' @
+#' @examples
+#' library(ClimClassMap)
 #' 
+#' data(Trent_climate)
+#' clim <- melt(clima_81_10,id="month")
+#' 
+#' ###
+#' #for (it in names(clima_81_10)) { clima_81_10[[it]]$station <- it }
+#' #clim <- do.call(rbind,clima_81_10)
+#
+# 
+
 
 
 
@@ -32,15 +46,18 @@ listClimApply <- function(P=NA,Tx=NA,Tm=NA,Tn=NA,month=1:12,clim_fun=contin,
 		
 		
 		
-	} else if (class(Tx)=="RasterStack" | class(Tx)=="RasterBrick" & is.raster==TRUE) {
+	} 
+	if (class(Tx)=="RasterStack" | class(Tx)=="RasterBrick" & is.raster==TRUE) {
 		months <- 1:nlayers(Tx)
-	} else if (class(Tm)=="RasterStack" | class(Tm)=="RasterBrick" & is.raster==TRUE) {	
+	} 
+	if (class(Tm)=="RasterStack" | class(Tm)=="RasterBrick" & is.raster==TRUE) {	
 		months <- 1:nlayers(Tm)
-	} else if (class(Tn)=="RasterStack" | class(Tn)=="RasterBrick" & is.raster==TRUE) {
+	} 
+	if (class(Tn)=="RasterStack" | class(Tn)=="RasterBrick" & is.raster==TRUE) {
 		months <- 1:nlayers(Tn)
 	}
 	
-	
+	 
 	
 	
 
