@@ -22,50 +22,34 @@ NULL
 #' data(Trent_climate)
 #' clim <- melt(clima_81_10,id="month")
 #' 
-#' ###
-#' #for (it in names(clima_81_10)) { clima_81_10[[it]]$station <- it }
-#' #clim <- do.call(rbind,clima_81_10)
+#' names(clim)[names(clim)=="L1"] <- "station"
+#' 
+#' station <- unique(clim$station)[4:6]
+#' names(station) <- station
+#' P <- lapply(X=station,FUN=function(it,df,variable) {df$value[df$station==it & df$variable==variable]},df=clim,variable="P")
+#' Tx <- lapply(X=station,FUN=function(it,df,variable) {df$value[df$station==it & df$variable==variable]},df=clim,variable="Tx")
+#' Tn <- lapply(X=station,FUN=function(it,df,variable) {df$value[df$station==it & df$variable==variable]},df=clim,variable="Tn")
+#' Tm <- lapply(X=station,FUN=function(it,df,variable) {df$value[df$station==it & df$variable==variable]},df=clim,variable="Tm")
+#' 
+#' c <- listClimApply(P=P,Tx=Tx,Tn=Tn,Tm=Tm,clim_fun="contin",indices=4)
+#' 
 #
 # 
 
 
 
 
-listClimApply <- function(P=NA,Tx=NA,Tm=NA,Tn=NA,month=1:12,clim_fun=contin,
-		latitude,longitude,elevation,coeff_rad=NA,...)   {
+listClimApply <- function(P=NA,Tx=NA,Tm=NA,Tn=NA,month=list(1:12),clim_fun="contin",...)   {
 	
-	##### 
-	is.raster <- FALSE  
-	if (class(P)=="RasterStack" | class(P)=="RasterBrick") is.raster <- TRUE
-	if (class(Tx)=="RasterStack" | class(Tx)=="RasterBrick" | is.na(Tx)) is.raster <- is.raster & TRUE
-	if (class(Tm)=="RasterStack" | class(Tm)=="RasterBrick" | is.na(Tm)) is.raster <- is.raster & TRUE
-	if (class(Tn)=="RasterStack" | class(Tn)=="RasterBrick" | is.na(Tn)) is.raster <- is.raster & TRUE	
 	
-	if (class(P)=="RasterStack" | class(P)=="RasterBrick" & is.raster==TRUE) {
-		months <- 1:nlayers(P)
-		
-		
-		
-	} 
-	if (class(Tx)=="RasterStack" | class(Tx)=="RasterBrick" & is.raster==TRUE) {
-		months <- 1:nlayers(Tx)
-	} 
-	if (class(Tm)=="RasterStack" | class(Tm)=="RasterBrick" & is.raster==TRUE) {	
-		months <- 1:nlayers(Tm)
-	} 
-	if (class(Tn)=="RasterStack" | class(Tn)=="RasterBrick" & is.raster==TRUE) {
-		months <- 1:nlayers(Tn)
-	}
 	
-	 
-	
+	### Elevation, Latitude, Longitude , Coeff_rad were actually removed!!!!! 
 	
 
-	out <- mapply(month=month,P=P,Tx=Tx,Tm=Tm,Tn=Tn,latitude=latitude,
-			longitude=longitude,elevation=elevation,coeff_rad=coeff_rad,clim_fun=clim_fun,FUN=climApply,...)
+	out <- mapply(month=month,P=P,Tx=Tx,Tm=Tm,Tn=Tn,clim_fun=clim_fun,FUN=climApply,...)
 	
 	
-	
+	names(out) <- names(P)
 	
 	
 	

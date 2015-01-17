@@ -31,17 +31,17 @@ climApply <- function(P=NA,Tx=NA,Tm=NA,Tn=NA,month=1:12,clim_fun=contin,...)   {
 	
 	
 	
-	
+	if (is.character(clim_fun)) clim_fun <- get(clim_fun)
 	###contin(clim_norm, latitude = NULL, elevation = NULL,
     ###Michalet_correction = FALSE, indices = 1:4)
+	###if (is.month(NA) | length(month)==1) month <- 1:12
 	
 	clim <- data.frame(month=month,P=P,Tx=Tx,Tm=Tm,Tn=Tn)
 	
-	
+
 	
 	out <- clim_fun(clim,...)
-	
-	
+
 	
 	
 	return(out)
