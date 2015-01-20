@@ -3,6 +3,15 @@ NULL
 #' 
 #' Extantsions of 'climClass' function 
 #' 
+#' @param P monthly precipitation 
+#' @param Tx monthly mean daily maximium temparature
+#' @param Tm monthly mean daily average temparature
+#' @param Tn monthly mean daily minimum temparature 
+#' @param month vector indicating each month. Default is \code{1:12}.
+#' @param clim_fun function or function name of the applied "ClimClass" package function
+#' @param ... further arguments for \code{clim_fun}
+#'  
+#' 
 #' @note 'month' can be replecad by 'layer'
 #' 
 #' 

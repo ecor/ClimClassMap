@@ -6,12 +6,20 @@
 NULL
 #' Extension of  "ClimApply" to a list 
 #' 
-#' Function "ClimApply" to ...
+#' Function "ClimApply" applied to a list
+#' 
+#' @param P monthly precipitation (list)
+#' @param Tx monthly mean daily maximium temparature (list)
+#' @param Tm monthly mean daily average temparature (list) 
+#' @param Tn monthly mean daily minimum temparature (list)
+#' @param month a list with a vector or vectors indicating each month. Default is \code{list(1:12)}.
+#' @param clim_fun character string containing the name of the applied "ClimClass" package function
+#' @param ... further arguments for \code{clim_fun} function 
 #' 
 #' 
 #' @note 'month' can be replecad by 'layer'
 #' 
-#' @seealso \code{\link{ClimApply}}
+#' @seealso \code{\link{climApply}}
 #' 
 #' 
 #' @export

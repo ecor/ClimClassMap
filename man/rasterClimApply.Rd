@@ -10,7 +10,7 @@ rasterClimApply(P = NA, Tx = NA, Tm = NA, Tn = NA, month = list(1:12),
 Function "ClimApply" to ...
 }
 \examples{
-TO DO
+## TO DO
 }
 \seealso{
 \code{\link{ClimApply}},\code{\link{listClimApply}}

@@ -6,6 +6,21 @@
 climApply(P = NA, Tx = NA, Tm = NA, Tn = NA, month = 1:12,
   clim_fun = contin, ...)
 }
+\arguments{
+\item{P}{monthly precipitation}
+
+\item{Tx}{monthly mean daily maximium temparature}
+
+\item{Tm}{monthly mean daily average temparature}
+
+\item{Tn}{monthly mean daily minimum temparature}
+
+\item{month}{vector indicating each month. Default is \code{1:12}.}
+
+\item{clim_fun}{function or function name of the applied "ClimClass" package function}
+
+\item{...}{further arguments for \code{clim_fun}}
+}
 \description{
 Extantsions of 'climClass' function
 }

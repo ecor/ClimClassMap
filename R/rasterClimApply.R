@@ -12,7 +12,7 @@ NULL
 #' 
 #' @examples
 #' 
-#' TO DO 
+#' ## TO DO 
 #' 
 #' 
 #' 

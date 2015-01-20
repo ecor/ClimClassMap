@@ -6,8 +6,23 @@
 listClimApply(P = NA, Tx = NA, Tm = NA, Tn = NA, month = list(1:12),
   clim_fun = "contin", ...)
 }
+\arguments{
+\item{P}{monthly precipitation (list)}
+
+\item{Tx}{monthly mean daily maximium temparature (list)}
+
+\item{Tm}{monthly mean daily average temparature (list)}
+
+\item{Tn}{monthly mean daily minimum temparature (list)}
+
+\item{month}{a list with a vector or vectors indicating each month. Default is \code{list(1:12)}.}
+
+\item{clim_fun}{character string containing the name of the applied "ClimClass" package function}
+
+\item{...}{further arguments for \code{clim_fun} function}
+}
 \description{
-Function "ClimApply" to ...
+Function "ClimApply" applied to a list
 }
 \note{
 'month' can be replecad by 'layer'
@@ -30,6 +45,6 @@ Tm <- lapply(X=station,FUN=function(it,df,variable) {df$value[df$station==it & d
 c <- listClimApply(P=P,Tx=Tx,Tn=Tn,Tm=Tm,clim_fun="contin",indices=4)
 }
 \seealso{
-\code{\link{ClimApply}}
+\code{\link{climApply}}
 }
 
