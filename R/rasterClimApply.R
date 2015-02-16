@@ -48,11 +48,20 @@ rasterClimApply <- function(P=NA,Tx=NA,Tm=NA,Tn=NA,month=list(1:12),clim_fun="co
 		month <- list(1:nlayers(Tn))
 	}
 	
+	
 	### Elevation, Latitude, Longitude , Coeff_rad were actually removed!!!!! 
 	
 	### TO DO 
+	Txl <- climStack2List(Tx)
+	Tml <- climStack2List(Tm)
+	Tnl <- climStack2List(Tx)
+	Pl <- climStack2List(P)
 	
-	out <- NULL
+	out <- listClimApply(P=Pl,Tx=Txl,Tm=Tml,Tn=Tnl,month=month,clim_fun=clim_fun,,...)
+	
+	## CREATE THE EXAMPLE!!!!
+	
+	##out <- NULL
 	
 	
 	

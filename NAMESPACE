@@ -1,3 +1,5 @@
 export(climApply)
+export(climStack2List)
 export(listClimApply)
 export(rasterClimApply)
+importFrom(raster,as.data.frame)
