@@ -26,8 +26,7 @@ NULL
 #' clim <- clima_81_10$T0083
 #' 
 #' c <- climApply(P=clim$P,Tx=clim$Tx,Tn=clim$Tn,Tm=clim$Tm,clim_fun=contin,indices=4)
-#' 
-#' 
+#'
 #' 
 #' 
 
