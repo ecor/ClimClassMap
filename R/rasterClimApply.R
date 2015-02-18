@@ -85,11 +85,7 @@ rasterClimApply <- function(P=NULL,Tx=NULL,Tm=NULL,Tn=NA,month=NA,clim_fun="cont
 	Tml <- climStack2List(Tm)
 	Tnl <- climStack2List(Tx)
 	Pl <- climStack2List(P)
-	str(Pl)
-	str(Tml)
-	print(length(Pl))
-	print(length(Tml))
-	print(month)
+	
 	out <- listClimApply(P=Pl,Tx=Txl,Tm=Tml,Tn=Tnl,month=month,clim_fun=clim_fun,...)
 	
 	## CREATE THE EXAMPLE!!!!
