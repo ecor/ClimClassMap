@@ -25,4 +25,7 @@ names(prec) <- sprintf("M\%02d",1:12)
 
 l <- climStack2List(prec)
 }
+\seealso{
+\code{\link{resterClimApply}},\code{\link{listClimApply}}
+}
 

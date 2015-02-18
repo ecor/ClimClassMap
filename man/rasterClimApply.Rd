@@ -35,5 +35,7 @@ indexMap <- rasterClimApply(P=prec,Tx=Tx,Tn=Tn,Tm=Tm,clim_fun="contin",indices=4
 }
 \seealso{
 \code{\link{ClimApply}},\code{\link{listClimApply}}
+
+\code{\link{climStack2List}},\code{\link{listClimApply}}
 }
 

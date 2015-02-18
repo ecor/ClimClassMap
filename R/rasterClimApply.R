@@ -10,7 +10,7 @@ NULL
 #' 
 #' @export
 #' 
-#' 
+#' @seealso \code{\link{climStack2List}},\code{\link{listClimApply}}
 #' @examples 
 #' 
 #' library(ClimClassMap)
@@ -75,7 +75,7 @@ rasterClimApply <- function(P=NULL,Tx=NULL,Tm=NULL,Tn=NA,month=NA,clim_fun="cont
 	
 	if (is.raster!=TRUE) {
 		
-		stop("rasterClimAppl: input weather data frame are not correct rasters!")
+		stop("rasterClimApply: input weather data frame are not correct rasters!")
 		
 	}
 	### Elevation, Latitude, Longitude , Coeff_rad were actually removed!!!!! 
@@ -85,8 +85,12 @@ rasterClimApply <- function(P=NULL,Tx=NULL,Tm=NULL,Tn=NA,month=NA,clim_fun="cont
 	Tml <- climStack2List(Tm)
 	Tnl <- climStack2List(Tx)
 	Pl <- climStack2List(P)
-	
-	out <- listClimApply(P=Pl,Tx=Txl,Tm=Tml,Tn=Tnl,month=month,clim_fun=clim_fun,,...)
+	str(Pl)
+	str(Tml)
+	print(length(Pl))
+	print(length(Tml))
+	print(month)
+	out <- listClimApply(P=Pl,Tx=Txl,Tm=Tml,Tn=Tnl,month=month,clim_fun=clim_fun,...)
 	
 	## CREATE THE EXAMPLE!!!!
 	

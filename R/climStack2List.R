@@ -14,6 +14,8 @@ NULL
 #' @export 
 #' @importFrom raster as.data.frame 
 #' 
+#' @seealso \code{\link{resterClimApply}},\code{\link{listClimApply}} 
+#' 
 #' @examples 
 #' 
 #' library(ClimClassMap)
@@ -45,14 +47,14 @@ climStack2List <- function(r) {
 	
 	out <- lapply(X=1:nrow(obj),FUN=function(v,data,c) {
 				
-				out <- as.vector(data[v,c])
+				out <- unlist(data[v,c])
 				
 				attr(out,"x") <- data$x[v]
 				attr(out,"y") <- data$y[v]
 				
 				return(out)
 				
-				data[v,]},data=obj,c=c)
+				},data=obj,c=c)
 	
 	
 	
