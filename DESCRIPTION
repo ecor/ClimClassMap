@@ -5,7 +5,8 @@ Version: 1.0
 Date: 2014-11-27
 Author: Emanuele Cordano, Emanuele Eccel
 Maintainer: Emanuele Cordano <emanuele.cordano@gmail.com>
-Description: TO DO
+Description: This package is an implementation of 'ClimClass' package to Raster
+    Maps.
 License: GPL (>= 2)
 Depends:
     ClimClass,raster

@@ -59,18 +59,22 @@ rasterClimApply <- function(P=NULL,Tx=NULL,Tm=NULL,Tn=NA,month=NA,clim_fun="cont
 	
 	if (class(P)=="RasterStack" | class(P)=="RasterBrick" & is.raster==TRUE) {
 		month <- list(1:nlayers(P))
-		
+		out_extent <- P[[1]]*NA
 		
 		
 	} 
 	if (class(Tx)=="RasterStack" | class(Tx)=="RasterBrick" & is.raster==TRUE) {
 		month <- list(1:nlayers(Tx))
+		out_extent <- Tx[[1]]*out_extent*NA
 	} 
 	if (class(Tm)=="RasterStack" | class(Tm)=="RasterBrick" & is.raster==TRUE) {	
 		month <- list(1:nlayers(Tm))
+		out_extent <- Tm[[1]]*out_extent*NA
+		
 	} 
 	if (class(Tn)=="RasterStack" | class(Tn)=="RasterBrick" & is.raster==TRUE) {
 		month <- list(1:nlayers(Tn))
+		out_extent <- Tn[[1]]*out_extent*NA
 	}
 	
 	if (is.raster!=TRUE) {
@@ -80,19 +84,28 @@ rasterClimApply <- function(P=NULL,Tx=NULL,Tm=NULL,Tn=NA,month=NA,clim_fun="cont
 	}
 	### Elevation, Latitude, Longitude , Coeff_rad were actually removed!!!!! 
 	
-	### TO DO 
+	
 	Txl <- climStack2List(Tx)
 	Tml <- climStack2List(Tm)
 	Tnl <- climStack2List(Tx)
 	Pl <- climStack2List(P)
 	
-	out <- listClimApply(P=Pl,Tx=Txl,Tm=Tml,Tn=Tnl,month=month,clim_fun=clim_fun,...)
+	xy <- array(NA,c(length(Pl),2))
 	
-	## CREATE THE EXAMPLE!!!!
+	xy[,1] <- unlist(lapply(X=Pl,FUN=attr,which="x"))
+	xy[,2] <- unlist(lapply(X=Pl,FUN=attr,which="y"))
 	
-	##out <- NULL
+	icell <- cellFromXY(out_extent, xy)
 	
 	
+	
+	out_list <- listClimApply(P=Pl,Tx=Txl,Tm=Tml,Tn=Tnl,month=month,clim_fun=clim_fun,...)
+	
+	### Fill the map!
+	
+	out <- out_extent
+	
+	out[icell] <- unlist(out_list)
 	
 	
 	return(out)
