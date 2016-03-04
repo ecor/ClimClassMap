@@ -16,6 +16,7 @@ NULL
 #' 
 #' 
 #' @export
+#' @importFrom ClimClass contin
 #' 
 #' @examples
 #' 
@@ -34,7 +35,7 @@ NULL
 
 
 
-climApply <- function(P=NA,Tx=NA,Tm=NA,Tn=NA,month=1:12,clim_fun=contin,...)   {
+climApply <- function(P=NA,Tx=NA,Tm=NA,Tn=NA,month=1:12,clim_fun=ClimClass::contin,...)   {
 	
 	
 	

@@ -34,10 +34,18 @@ NULL
 #' 
 #' station <- unique(clim$station)[4:6]
 #' names(station) <- station
-#' P <- lapply(X=station,FUN=function(it,df,variable) {df$value[df$station==it & df$variable==variable]},df=clim,variable="P")
-#' Tx <- lapply(X=station,FUN=function(it,df,variable) {df$value[df$station==it & df$variable==variable]},df=clim,variable="Tx")
-#' Tn <- lapply(X=station,FUN=function(it,df,variable) {df$value[df$station==it & df$variable==variable]},df=clim,variable="Tn")
-#' Tm <- lapply(X=station,FUN=function(it,df,variable) {df$value[df$station==it & df$variable==variable]},df=clim,variable="Tm")
+#' P <- lapply(X=station,FUN=function(it,df,variable) {
+#' 				df$value[df$station==it & df$variable==variable]
+#' },df=clim,variable="P")
+#' Tx <- lapply(X=station,FUN=function(it,df,variable) {
+#' 			df$value[df$station==it & df$variable==variable]
+#' 	},df=clim,variable="Tx")
+#' Tn <- lapply(X=station,FUN=function(it,df,variable) {
+#' 	df$value[df$station==it & df$variable==variable]
+#' 	},df=clim,variable="Tn")
+#' Tm <- lapply(X=station,FUN=function(it,df,variable) {
+#' 		df$value[df$station==it & df$variable==variable]
+#' 		},df=clim,variable="Tm")
 #' 
 #' c <- listClimApply(P=P,Tx=Tx,Tn=Tn,Tm=Tm,clim_fun="contin",indices=4)
 #' 

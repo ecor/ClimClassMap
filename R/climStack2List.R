@@ -14,7 +14,7 @@ NULL
 #' @export 
 #' @importFrom raster as.data.frame 
 #' 
-#' @seealso \code{\link{resterClimApply}},\code{\link{listClimApply}} 
+#' @seealso \code{\link{rasterClimApply}},\code{\link{listClimApply}} 
 #' 
 #' @examples 
 #' 
@@ -25,13 +25,14 @@ NULL
 #' 
 #' fact <- 5
 #' 
-#' prec <- aggregate(stack(paste(wpath,sprintf(prec_map,1:12),sep="/")),fact=fact) ## 1000 m resolution 
+#' prec <- aggregate(stack(paste(wpath,sprintf(prec_map,1:12),sep="/")),
+#' 	fact=fact) ## 1000 m resolution 
 #' names(prec) <- sprintf("M%02d",1:12)
 #' 
 #' l <- climStack2List(prec)
 #' 
 #' 
-#' 
+##### climRaster2List
 
 
 
